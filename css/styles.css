@@ -1631,3 +1631,21 @@ img {
         padding: 6px 10px;
     }
 }
+
+/* Pastikan elemen grid tidak pecah saat ditarik ke landscape */
+@media print {
+    .projects-grid, .blog-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 kolom per slide agar jelas */
+        gap: 20px !important;
+    }
+    
+    .project-card, .blog-post {
+        break-inside: avoid; /* Jangan biarkan kartu terpotong antar halaman */
+    }
+    
+    section {
+        padding: 20px !important;
+        min-height: auto !important;
+    }
+}

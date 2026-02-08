@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Porfolio Talitha Rahmadewati Witanto</title>
+    <title>Portfolio Talitha Rahmadewati Witanto</title>
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
-    <body>
     <nav class="navbar">
         <div class="logo"><span>Data</span>Analyst</div>
         <ul class="nav-links">
@@ -34,7 +34,8 @@
                 Eager to collaborate, innovate, and contribute to impactful data-driven projects that solve real-world problems.
             </p>
             <div class="hero-buttons">
-                <a id="downloadCV" href="img/CV ATS Talitha Rahmadewati Witanto.pdf" download="CV ATS Talitha Rahmadewati Witanto.pdf" class="btn">Download CV</a>
+                <a id="downloadCV" href="img/CV ATS Talitha Rahmadewati Witanto.pdf" download class="btn">Download CV</a>
+                <button type="button" id="downloadPortfolio" class="btn btn-portfolio">Download Portfolio</button>
             </div>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/talitha-rahmadewati-witanto/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -44,6 +45,82 @@
             </div>
         </div>
     </section>
+
+    <script>
+    document.getElementById('downloadPortfolio').addEventListener('click', async function () {
+        const downloadBtn = this;
+        const originalText = downloadBtn.innerHTML;
+        
+        // Memberi feedback visual saat memproses
+        downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+        downloadBtn.style.pointerEvents = 'none';
+
+        // 1. Buat elemen container sementara (Virtual DOM)
+        const tempContainer = document.createElement('div');
+        tempContainer.style.width = '297mm'; // Lebar standar landscape
+        tempContainer.style.background = '#1a1a1a'; // Samakan dengan tema dark mode Anda
+
+        // 2. Clone Halaman Utama
+        const mainContent = document.body.cloneNode(true);
+        
+        // Hapus elemen yang benar-benar tidak diinginkan di PDF (tombol & script)
+        const unwanted = mainContent.querySelectorAll('.hero-buttons, script, ins, .goog-te-banner-frame');
+        unwanted.forEach(el => el.remove());
+
+        // Pastikan teks animasi saat ini ikut terambil
+        const typingText = document.getElementById('typing-text').innerText;
+        const clonedTypingText = mainContent.querySelector('#typing-text');
+        if (clonedTypingText) clonedTypingText.innerText = typingText;
+
+        tempContainer.appendChild(mainContent);
+
+        // 3. Ambil Konten dari More Projects (projects.html) secara otomatis
+        try {
+            const response = await fetch('projects.html');
+            const text = await response.text();
+            const parser = new DOMParser();
+            const projectDoc = parser.parseFromString(text, 'text/html');
+            
+            // Ambil section grid projectnya saja
+            const projectSection = projectDoc.querySelector('#more-projects');
+            if (projectSection) {
+                const pageBreak = document.createElement('div');
+                pageBreak.style.pageBreakBefore = 'always'; // Pisah ke slide/halaman baru
+                pageBreak.innerHTML = '<h2 style="text-align:center; color:#2196F3; margin: 50px 0;">Extended Projects Showcase</h2>';
+                
+                tempContainer.appendChild(pageBreak);
+                tempContainer.appendChild(projectSection.cloneNode(true));
+            }
+        } catch (err) {
+            console.warn("Could not load More Projects for PDF:", err);
+        }
+
+        // 4. Konfigurasi PDF Ukuran PPT (Landscape)
+        const opt = {
+            margin: [5, 5, 5, 5],
+            filename: 'Portfolio_Talitha_Witanto_Slides.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { 
+                scale: 2, 
+                useCORS: true, 
+                letterRendering: true,
+                scrollY: 0
+            },
+            jsPDF: { 
+                unit: 'mm', 
+                format: 'a4', 
+                orientation: 'landscape' 
+            },
+            pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+        };
+
+        // 5. Jalankan Konversi
+        html2pdf().set(opt).from(tempContainer).save().then(() => {
+            downloadBtn.innerHTML = originalText;
+            downloadBtn.style.pointerEvents = 'auto';
+        });
+    });
+</script>
 
 <div class="resume-content">
     <div class="resume-left">
@@ -500,6 +577,7 @@
         </div>
     </div>
 </section>
+<script src="js/script.js"></script>
 
 <footer style="text-align: center; padding: 20px 0; color: #bfbfbf; font-size: 14px; background: rgba(26, 26, 26, 0.95);">
     <p>&copy; 2026 Talitharhmd. All Rights Reserved.</p>
