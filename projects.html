@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Talitha Rahmadewati Witanto</title>
+    <title>Porfolio Talitha Rahmadewati Witanto</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <nav class="navbar">
@@ -52,7 +53,7 @@
                         <span class="project-type">Research Project</span>
                         <span class="project-date">Feb - June 2025</span>
                     </div>
-                    <h3 class="project-title">Mental Health Sentiment Trends</h3>
+                    <h3 class="project-title">Machine Learning for Emotional Tone Detection: Comparing Naive Bayes and Support Vector Machine in Mental Health Contexts</h3>
                     <p class="project-overview">Comparing different algorithms to detect mental health discussion patterns on social media.</p>
                     <div class="project-goal"><strong>Goal:</strong> To find the best model for early detection of mental health issues through text.</div>
                     <h4 class="responsibilities-title">Key & Responsibilities:</h4>
@@ -66,7 +67,63 @@
                 <div class="project-details">
                     <div class="detail-row"><span class="detail-label">Methods:</span> Algorithm Comparison, Model Evaluation, Data Visualization</div>
                     <div class="project-links">
-                        <a href="#" target="_blank" class="link-btn">Github Repository</a>
+                        <a href="https://www.semanticscholar.org/paper/Machine-Learning-for-Emotional-Tone-Detection%3A-and-Annur-Irawan/31bfde36e5ba88a1b03b70c2d8a42160983e640f" target="_blank" class="link-btn">Paper</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card" data-tags="ml">
+                <div class="project-image-container">
+                    <img src="img/customer-segmentation.png" alt="Customer Personality Segmentation" class="project-img">
+                </div>
+                <div class="card-header">
+                    <div class="project-meta">
+                        <span class="project-type">Academic Project</span>
+                        <span class="project-date">2024</span>
+                    </div>
+                    <h3 class="project-title">Customer Personality Segmentation Analysis</h3>
+                    <p class="project-overview">Analyzing customer data to group them based on income and spending habits to identify distinct buyer personas.</p>
+                    <div class="project-goal"><strong>Goal:</strong> To identify high-value customer groups and provide insights for targeted marketing strategies.</div>
+                    <h4 class="responsibilities-title">Key & Responsibilities:</h4>
+                    <ul class="project-results">
+                        <li>Cleaned the dataset and handled missing values using the KNN Imputer method to ensure high data quality.</li>
+                        <li>Applied the K-Means algorithm to segment customers into specific clusters based on their purchasing power.</li>
+                        <li>Validated clustering accuracy using the Elbow Method and Silhouette Score to determine the optimal number of segments.</li>
+                    </ul>
+                    <div class="project-tools">Python | Pandas | Scikit-Learn | Matplotlib | Seaborn</div>
+                </div>
+                <div class="project-details">
+                    <div class="detail-row"><span class="detail-label">Methods:</span> K-Means Clustering, Data Cleaning, Customer Profiling</div>
+                    <div class="project-links">
+                        <a href="https://github.com/Falah21/TubesMachineLearning/tree/main" target="_blank" class="link-btn">Github Repository</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card" data-tags="ml">
+                <div class="project-image-container">
+                    <img src="img/aes-project.png" alt="Automated Essay Scoring System" class="project-img">
+                </div>
+                <div class="card-header">
+                    <div class="project-meta">
+                        <span class="project-type">Research Project</span>
+                        <span class="project-date">2024</span>
+                    </div>
+                    <h3 class="project-title">Automated Essay Scoring System for Indonesian Text</h3>
+                    <p class="project-overview">Developing and comparing AI models to automatically grade student essays by measuring semantic similarity to reference answers.</p>
+                    <div class="project-goal"><strong>Goal:</strong> To create a faster, more objective, and automated way to grade student reflections using AI.</div>
+                    <h4 class="responsibilities-title">Key & Responsibilities:</h4>
+                    <ul class="project-results">
+                        <li>Preprocessed raw text data from student surveys by removing stop words and applying stemming using Sastrawi.</li>
+                        <li>Built and compared text-processing models (Word2Vec vs. FastText) to evaluate semantic understanding performance.</li>
+                        <li>Proved the FastText model's superior accuracy (0.80 score) compared to Word2Vec (0.53) for Indonesian text processing.</li>
+                    </ul>
+                    <div class="project-tools">Python | Gensim (FastText) | NLTK | Sastrawi</div>
+                </div>
+                <div class="project-details">
+                    <div class="detail-row"><span class="detail-label">Methods:</span> Natural Language Processing (NLP), Text Preprocessing, Cosine Similarity</div>
+                    <div class="project-links">
+                        <a href="https://github.com/talitharhmd/Essay-Answer-Scoring" target="_blank" class="link-btn">Github Repository</a>
                     </div>
                 </div>
             </article>
@@ -80,8 +137,8 @@
                         <span class="project-type">Course Project</span>
                         <span class="project-date">Oct 2024</span>
                     </div>
-                    <h3 class="project-title">Bicycle Sales Data Warehouse</h3>
-                    <p class="project-overview">Designing a data warehouse system to monitor bicycle sales performance in real-time.</p>
+                    <h3 class="project-title">Design and Implementation of Bicycle Sales Data Warehouse</h3>
+                    <p class="project-overview">Designing and implementing a data warehouse to analyze bicycle sales data using databases, SQL, and interactive dashboard</p>
                     <div class="project-goal"><strong>Goal:</strong> To centralize sales data for easier reporting and better stock management.</div>
                     <h4 class="responsibilities-title">Key & Responsibilities:</h4>
                     <ul class="project-results">
@@ -89,12 +146,12 @@
                         <li>Designed a Star Schema database to make data retrieval faster.</li>
                         <li>Developed interactive dashboards to visualize profit trends and stock levels.</li>
                     </ul>
-                    <div class="project-tools">SQL | Looker Studio | PostgreSQL | ETL</div>
+                    <div class="project-tools">SQL | Looker Studio | ETL</div>
                 </div>
                 <div class="project-details">
                     <div class="detail-row"><span class="detail-label">Methods:</span> Database Design, Data Modeling, Dashboarding</div>
                     <div class="project-links">
-                        <a href="#" target="_blank" class="link-btn">Looker Studio</a>
+                        <a href="https://lookerstudio.google.com/reporting/36a5488a-0589-4b3b-840d-6343cf62977f" target="_blank" class="link-btn">Looker Studio</a>
                     </div>
                 </div>
             </article>
@@ -105,7 +162,7 @@
                 </div>
                 <div class="card-header">
                     <div class="project-meta">
-                        <span class="project-type">Course Project (EDA)</span>
+                        <span class="project-type">Course Project</span>
                         <span class="project-date">Sept 2024</span>
                     </div>
                     <h3 class="project-title">SDG Health & Well-being Analysis</h3>
@@ -120,9 +177,9 @@
                     <div class="project-tools">Power BI | Excel | Statistical Analysis</div>
                 </div>
                 <div class="project-details">
-                    <div class="detail-row"><span class="detail-label">Methods:</span> Exploratory Data Analysis (EDA), Geospatial Analysis</div>
+                    <div class="detail-row"><span class="detail-label">Methods:</span> Exploratory Data Analysis (EDA), Data Cleaning, Data Visualization, Data Preparation</div>
                     <div class="project-links">
-                        <a href="#" target="_blank" class="link-btn">View Report</a>
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiMDZiZTA1OGMtZjJmYi00ZjViLWE3YWQtNmNkYjE5NTk4YmRmIiwidCI6IjM3YTQyZTI3LWVhMTctNGVjOC05NGRmLWUwM2NjZTcyNDE5MCIsImMiOjEwfQ%3D%3D" target="_blank" class="link-btn">View Report</a>
                     </div>
                 </div>
             </article>
@@ -132,10 +189,10 @@
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <div class="project-meta">
-                            <span class="project-type">Competition (PENS)</span>
+                            <span class="project-type">Competition</span>
                             <span class="project-date">Aug 2024</span>
                         </div>
-                        <h3 class="project-title">Digital Inequality Infographic</h3>
+                        <h3 class="project-title">Opening Doors to Information and Communication Access</h3>
                         <div class="project-goal"><strong>Goal:</strong> To raise awareness about the internet access gap between villages and cities.</div>
                         <h4 class="responsibilities-title">Key & Responsibilities:</h4>
                         <ul class="project-results">
@@ -143,7 +200,7 @@
                             <li>Created a simple data storytelling narrative for the general public.</li>
                             <li>Designed an infographic poster that led the team to the Finals.</li>
                         </ul>
-                        <div class="project-tools">Data Research | Canva | Data Storytelling</div>
+                        <div class="project-tools">Data Research | Canva | Data Storytelling | Data Visualization</div>
                         <label for="toggle-info-1" class="flip-trigger">View Infographic</label>
                     </div>
                     <div class="flip-card-back">
@@ -152,9 +209,48 @@
                 </div>
             </article>
 
+            <article class="project-card infographic-card" data-tags="visualization">
+            <input type="checkbox" id="toggle-info-usu" class="info-toggle">
+
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="project-meta">
+                        <span class="project-type">Competition</span>
+                        <span class="project-date">2023</span>
+                    </div>
+
+                    <h3 class="project-title">
+                        Stop Perbandingan Sosial! Mulailah Mencintai Diri Sendiri
+                    </h3>
+
+                    <div class="project-goal">
+                        <strong>Goal:</strong> Increase public awareness of mental health dynamics.
+                    </div>
+
+                    <ul class="project-results">
+                        <li>Designed a scientific poster to communicate research findings.</li>
+                        <li>Finalist at national-level competition.</li>
+                    </ul>
+
+                    <div class="project-tools">
+                        Data Research | Canva | Data Visualization
+                    </div>
+
+                    <label for="toggle-info-usu" class="flip-trigger">
+                        View Infographic
+                    </label>
+                </div>
+
+                    <div class="flip-card-back">
+                        <img src="img/poster-usu.png" alt="USU Mental Health Infographic" class="infographic-img">
+                    </div>
+                </div>
+                </article>
+
+
             <article class="project-card" data-tags="ml">
                 <div class="project-image-container">
-                    <img src="img/election-sentiment.jpg" alt="2024 Election Sentiment Analysis" class="project-img">
+                    <img src="img/data-stranger.png" alt="2024 Election Sentiment Analysis" class="project-img">
                 </div>
                 <div class="card-header">
                     <div class="project-meta">
@@ -170,10 +266,10 @@
                         <li>Used Deep Learning (IndoBERT) to label tweets as Positive, Neutral, or Negative.</li>
                         <li>Created trend visualizations that helped the team become a Top 5 Finalist.</li>
                     </ul>
-                    <div class="project-tools">Python | IndoBERT | Deep Learning | Data Scraping</div>
+                    <div class="project-tools">Python | IndoBERT</div>
                 </div>
                 <div class="project-details">
-                    <div class="detail-row"><span class="detail-label">Methods:</span> NLP, Text Classification, Sentiment Scoring</div>
+                    <div class="detail-row"><span class="detail-label">Methods:</span>Data Scraping, NLP, Text Classification, Deep Learning, Machine Learning</div>
                     <div class="project-links">
                         <a href="#" target="_blank" class="link-btn">Github Repository</a>
                     </div>
@@ -189,21 +285,21 @@
                         <span class="project-type">Course Project</span>
                         <span class="project-date">Jan 2024</span>
                     </div>
-                    <h3 class="project-title">Campus Resource Monitoring</h3>
+                    <h3 class="project-title">Monitoring Borrowing of Goods and Rooms for Optimization at Tel-U</h3>
                     <p class="project-overview">A monitoring dashboard to manage room and asset rentals at the university.</p>
                     <div class="project-goal"><strong>Goal:</strong> To optimize resource allocation and make campus operations more efficient.</div>
                     <h4 class="responsibilities-title">Key & Responsibilities:</h4>
                     <ul class="project-results">
                         <li>Validated historical data for room and equipment bookings.</li>
                         <li>Analyzed peak usage times to help with better scheduling.</li>
-                        <li>Visualized weekly booking patterns in an interactive report.</li>
+                        <li>Designed interactive dashboards using Looker Studio.</li>
                     </ul>
-                    <div class="project-tools">Google Looker Studio | Data Cleaning | Business Analysis</div>
+                    <div class="project-tools">Google Looker Studio | Excel | Python</div>
                 </div>
                 <div class="project-details">
-                    <div class="detail-row"><span class="detail-label">Methods:</span> Usage Tracking, Resource Allocation Analysis</div>
+                    <div class="detail-row"><span class="detail-label">Methods:</span>Data Wrangling, Data Analysis, Dashboard</div>
                     <div class="project-links">
-                        <a href="#" target="_blank" class="link-btn">Project Link</a>
+                        <a href="https://lookerstudio.google.com/reporting/86091b60-e971-423e-9416-c9dc8cb38811/page/p_hv8jmkhshd" target="_blank" class="link-btn">Looker Studio</a>
                     </div>
                 </div>
             </article>
@@ -235,7 +331,7 @@
             </div>
 
             <div class="cert-card">
-                <img src="img/azure-ai.jpg" alt="Azure AI Fundamentals">
+                <img src="img/certificates/elevate.png" alt="Azure AI Fundamentals">
                 <div class="cert-overlay">
                     <h3>Azure AI Fundamentals (AI-900)</h3>
                     <p>Earned certificate for Azure AI Fundamentals preparation course</p>
@@ -396,31 +492,36 @@
                 </div>
             </div>
 
-            <form action="https://formspree.io/f/mjkjezrd" method="POST" class="contact-form" id="contactForm">
+            <form class="contact-form" id="contactForm">
                 <div class="form-group">
-                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="text" id="userName" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="email" id="userEmail" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="subject" placeholder="Subject" required>
+                    <input type="text" id="userSubject" placeholder="Subject" required>
                 </div>
                 <div class="form-group">
-                    <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+                    <textarea id="userMessage" placeholder="Your Message" rows="6" required></textarea>
                 </div>
                 <button type="submit" class="btn">Send Message</button>
             </form>
 
             <script>
-                document.getElementById("contactForm").addEventListener("submit", function() {
-                    const successMsg = document.getElementById("successMsg");
-                    if (successMsg) {
-                        successMsg.style.display = "block";
-                        setTimeout(() => {
-                            successMsg.style.display = "none";
-                        }, 3000);
-                    }
+                document.getElementById("contactForm").addEventListener("submit", function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById("userName").value;
+                    const email = document.getElementById("userEmail").value;
+                    const subject = document.getElementById("userSubject").value;
+                    const message = document.getElementById("userMessage").value;
+                    
+                    // Membuat link mailto otomatis
+                    const mailtoLink = `mailto:talitharhmd@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\n" + message)}`;
+                    
+                    // Eksekusi pengiriman
+                    window.location.href = mailtoLink;
                 });
             </script>
         </div>
