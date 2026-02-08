@@ -109,28 +109,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// Hubungkan ke Library i18next via CDN
-import i18next from 'https://cdn.jsdelivr.net/npm/i18next/+esm';
 
-const translations = { /* Isi JSON dari poin 1 tadi di sini */ };
-
-i18next.init({
-  lng: 'en', // Bahasa default
-  resources: translations
-}, function(err, t) {
-  updateContent();
-});
-
-function updateContent() {
-  // Mencari semua elemen yang punya atribut data-i18n
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    el.innerHTML = i18next.t(key);
-  });
-}
-
-// Logika tombol switch
-document.getElementById('lang-switch').addEventListener('click', () => {
-  const newLang = i18next.language === 'en' ? 'id' : 'en';
-  i18next.changeLanguage(newLang, updateContent);
-});
