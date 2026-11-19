@@ -1222,3 +1222,27 @@ strong { font-weight: 700; }
 .card__cred { margin: -2px 0 8px; font-size: .78rem; line-height: 1.35; color: var(--muted); word-break: break-all; }
 .card__cred span { font-weight: 700; letter-spacing: .02em; color: var(--text); }
 .card__cred span::after { content: ":"; }
+
+/* mobile: pager & filter tidak boleh melebihi lebar layar (penyebab ruang kosong di kanan) */
+.fbar { flex-wrap: wrap; min-width: 0; }
+.pager { flex-wrap: wrap; max-width: 100%; min-width: 0; }
+@media (max-width: 640px) {
+  .fbar > * { max-width: 100%; }
+  .pager { justify-content: center; width: 100%; gap: 6px; }
+  .pager .pg { min-width: 34px; height: 34px; }
+}
+@media (max-width: 350px) { .logo { font-size: 1.05rem; } .nav__tools { gap: 6px; } }
+
+/* pilihan CV (EN / ID) */
+.dd { position: relative; display: inline-block; }
+.dd__btn .dd__car { width: 14px; height: 14px; transform: rotate(90deg); transition: transform .2s; margin-left: -2px; }
+.dd__btn[aria-expanded="true"] .dd__car { transform: rotate(-90deg); }
+.dd__menu { position: absolute; z-index: 30; top: calc(100% + 8px); left: 0; min-width: 100%; width: max-content; display: flex; flex-direction: column; gap: 2px; padding: 6px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: 0 14px 34px rgba(8, 14, 30, .22); }
+.dd__menu[hidden] { display: none; }
+.dd__menu a { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 11px; font-size: .92rem; font-weight: 500; color: var(--text); }
+.dd__menu a b { display: grid; place-items: center; min-width: 34px; height: 26px; padding: 0 8px; border-radius: 8px; font-size: .74rem; letter-spacing: .04em; color: var(--blue); background: var(--blue-soft); }
+.dd__menu a:hover, .dd__menu a:focus-visible { background: var(--blue-soft); }
+.dd__menu a[hidden] { display: none; }
+@media (max-width: 640px) { .dd { width: 100%; } .dd .btn { width: 100%; justify-content: center; } .dd__menu { width: 100%; } }
+.hero__copy > .cta { position: relative; z-index: 6; }
+.loc__open{display:inline-block;margin-top:4px;color:var(--blue);font-weight:600;font-size:.9em}

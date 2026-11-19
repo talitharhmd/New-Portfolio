@@ -214,7 +214,7 @@
     const cp = $("#cntProjects"); if (cp) cp.dataset.count = String(PROJECTS.length);
 
     // tombol unduh (disembunyikan bila file belum ada di server)
-    [["#dlCv", CONFIG.files.cv], ["#dlPf", CONFIG.files.portfolio]].forEach(([sel, href]) => {
+    [["#cvEn", CONFIG.files.cv.en], ["#cvId", CONFIG.files.cv.id], ["#dlPf", CONFIG.files.portfolio]].forEach(([sel, href]) => {
       const a = $(sel);
       if (!href) { a.hidden = true; return; }
       a.href = href;
@@ -222,6 +222,19 @@
         fetch(href, { method: "HEAD" }).then((r) => { if (!r.ok) a.hidden = true; }).catch(() => {});
       }
     });
+
+    // menu pilihan CV (EN / ID)
+    const cvBtn = $("#cvBtn"), cvMenu = $("#cvMenu");
+    const cvShut = () => { cvMenu.hidden = true; cvBtn.setAttribute("aria-expanded", "false"); };
+    cvBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const open = cvMenu.hidden;
+      cvMenu.hidden = !open; cvBtn.setAttribute("aria-expanded", String(open));
+      if (open) { const f = $(lang === "id" ? "#cvId" : "#cvEn"); if (f && !f.hidden) f.focus({ preventScroll: true }); }
+    });
+    document.addEventListener("click", (e) => { if (!e.target.closest("#cvDd")) cvShut(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !cvMenu.hidden) { cvShut(); cvBtn.focus(); } });
+    cvMenu.addEventListener("click", () => setTimeout(cvShut, 50));
 
     // efek mengetik
     const el = $("#typed");
@@ -277,7 +290,7 @@
 
   /* ---------- Sosial ---------- */
   const SOCIALS = [
-    ["linkedin", "LinkedIn"], ["github", "GitHub"], ["medium", "Medium"], ["instagram", "Instagram"]
+    ["linkedin", "LinkedIn"], ["github", "GitHub"], ["medium", "Medium"], ["instagram", "Instagram"], ["whatsapp", "WhatsApp"]
   ];
   function renderSocial() {
     const html = SOCIALS.filter(([k]) => CONFIG.social[k]).map(([k, label]) =>
@@ -651,7 +664,9 @@
     const a = $("#mailLink");
     a.href = `mailto:${CONFIG.email}`;
     a.textContent = CONFIG.email;
-    $("#locText").textContent = T(CONFIG.location);
+    const wa = $("#waLink");
+    wa.href = CONFIG.whatsapp.url; wa.textContent = CONFIG.whatsapp.show;
+    $("#locText").innerHTML = esc(T(CONFIG.location)) + "<br><span class=\"loc__open\">" + esc(T(CONFIG.openTo)) + "</span>";
     $("#availText").textContent = T(CONFIG.availability);
   }
 
@@ -660,6 +675,18 @@
     catch (e) {
       const ta = document.createElement("textarea");
       ta.value = CONFIG.email; document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); } catch (err) { /* diabaikan */ }
+      ta.remove();
+    }
+    toast(ui("contact.copied"));
+  });
+
+  $("#copyWa").addEventListener("click", async () => {
+    const num = CONFIG.whatsapp.show;
+    try { await navigator.clipboard.writeText(num); }
+    catch (e) {
+      const ta = document.createElement("textarea");
+      ta.value = num; document.body.appendChild(ta); ta.select();
       try { document.execCommand("copy"); } catch (err) { /* diabaikan */ }
       ta.remove();
     }

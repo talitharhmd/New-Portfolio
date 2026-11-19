@@ -13,20 +13,23 @@ const CONFIG = {
   degree: "S.Si.D.",
   // PDF memakai "talitharhmade", website lama memakai "talitharhmd" — pastikan mana yang aktif.
   email: "talitharhmade@gmail.com",
+  whatsapp: { show: "+62 857-0746-1745", url: "https://wa.me/6285707461745" },
   location: L("Surabaya, East Java, Indonesia", "Surabaya, Jawa Timur, Indonesia"),
+  openTo: L("Open to work in: Bogor & Jakarta", "Terbuka di lokasi: Bogor & Jakarta"),
   availability: L("Mon–Fri, 7 AM–5 PM", "Senin–Jumat, 07.00–17.00"),
   campusLogo: "img/telkom-logo",        // logo kampus (opsional)
   showEmptyLinks: true,                 // true: tombol yang linknya belum diisi tampil redup. Ubah ke false saat semua link sudah diisi
   photo: "img/profile",                 // ekstensi dicoba otomatis: png/jpg/jpeg/webp
   files: {
-    cv: "files/Talitha-Rahmadewati-CV.pdf",
-    portfolio: "files/Talitha-Rahmadewati-Portfolio.pdf"
+    cv: { en: "files/Talitha-Rahmadewati-CV-EN.pdf", id: "files/Talitha-Rahmadewati-CV-ID.pdf" },
+    portfolio: ""
   },
   social: {
     linkedin: "https://www.linkedin.com/in/talitha-rahmadewati-w",
     github: "https://github.com/talitharhmd",
     medium: "https://medium.com/@talitharhmd",
-    instagram: "https://www.instagram.com/tatarhmde/"
+    instagram: "https://www.instagram.com/tatarhmde/",
+    whatsapp: "https://wa.me/6285707461745"
   },
   roles: ["Data Analyst", "Business Intelligence", "Data Visualization", "Machine Learning"]
 };
@@ -968,7 +971,7 @@ const I18N = {
     "hero.status": "Open to Data Analyst, BI & Data Science roles",
     "hero.hi": "Hi, I'm",
     "hero.lead": "**Data Science graduate** with **about one year of hands-on experience** in data analysis, data visualization and machine learning. I turn messy, complex data into **dashboards and insights that support real decisions**.",
-    "hero.cta.projects": "View Projects", "hero.cta.cv": "Download CV", "hero.cta.pf": "Download Portfolio",
+    "hero.cta.projects": "View Projects", "hero.cta.cv": "Download CV", "cv.en": "English version", "cv.id": "Indonesian version", "hero.cta.pf": "Download Portfolio",
     "hero.g1t": "Months", "hero.g1d": "Professional Data Experience", "hero.g2t": "Projects", "hero.g2d": "Data Science & Analytics", "hero.g3t": "Core Areas", "hero.g3d": "Analytics, Visualization & ML", "hero.s1": "Election Records Structured", "hero.s2": "Reporting Time", "hero.s3": "Recording Errors", "edu.site": "Visit Official Website", "hero.gpa": "GPA", "hero.based": "Current Location", "hero.loc": "Surabaya, Indonesia", "hero.interns": "internships", "hero.projects": "Projects Completed", "hero.certs": "certificates & awards",
     "about.title": "About Me",
     "about.sub": "Who I am and what I bring to a data team.",
@@ -1020,7 +1023,7 @@ const I18N = {
     "hero.status": "Terbuka untuk posisi Data Analyst, BI & Data Science",
     "hero.hi": "Halo, saya",
     "hero.lead": "Lulusan Sains Data dengan pengalaman praktis sekitar 1 tahun di analisis data, visualisasi data, dan machine learning. Saya mengubah data yang kompleks dan berantakan menjadi dashboard dan insight untuk mendukung pengambilan keputusan.",
-    "hero.cta.projects": "Lihat Proyek", "hero.cta.cv": "Unduh CV", "hero.cta.pf": "Unduh Portofolio",
+    "hero.cta.projects": "Lihat Proyek", "hero.cta.cv": "Unduh CV", "cv.en": "Versi Bahasa Inggris", "cv.id": "Versi Bahasa Indonesia", "hero.cta.pf": "Unduh Portofolio",
     "hero.g1t": "Bulan", "hero.g1d": "Pengalaman Profesional Bidang Data", "hero.g2t": "Projects", "hero.g2d": "Data Science & Analytics", "hero.g3t": "Bidang Utama", "hero.g3d": "Analitik, Visualisasi & ML", "hero.s1": "Data Pemilu Terstruktur", "hero.s2": "Waktu Pelaporan", "hero.s3": "Kesalahan Pencatatan", "edu.site": "Kunjungi Website Resmi", "hero.gpa": "IPK", "hero.based": "Lokasi Saat Ini", "hero.loc": "Surabaya, Indonesia", "hero.interns": "magang", "hero.projects": "Projects Selesai", "hero.certs": "sertifikat & penghargaan",
     "about.title": "Tentang Saya",
     "about.sub": "Siapa saya dan apa yang bisa saya bawa ke tim data.",
