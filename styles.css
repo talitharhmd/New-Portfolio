@@ -642,7 +642,7 @@ body.is-locked { overflow: hidden; }
   .section { padding: 72px 0; }
   .sec-head { margin-bottom: 30px; }
   .grid, .grid--certs, .posts, .do { grid-template-columns: 1fr; }
-  .glance { grid-template-columns: repeat(2, 1fr); }
+  .glance { grid-template-columns: repeat(3, 1fr); }
   .cta .btn { flex: 1 1 auto; }
   .tabs { display: flex; width: 100%; }
   .tab { flex: 1; padding: 9px 8px; font-size: .84rem; }
@@ -1189,12 +1189,36 @@ strong { font-weight: 700; }
 /* placeholder (gambar belum ada) di galeri: cukup ikon, keterangan sudah ada di bar bawah */
 .mgal .cover__ph span { display: none; }
 
-/* logo website (gambar) */
-.logo { display: inline-flex; align-items: center; gap: 10px; }
-.logo__img { height: 38px; width: auto; display: block; }
-/* logo punya huruf navy: beri latar putih tipis supaya tetap terbaca di tema gelap */
-.logo__img { height: 40px; padding: 3px 6px; border-radius: 11px; background: #fff; box-shadow: 0 2px 10px rgba(0, 0, 0, .18); }
 
 /* galeri modal: tampilkan gambar utuh (flowchart, tabel, dashboard tidak terpotong) */
 .mgal__main .mgal__img { background: color-mix(in srgb, var(--raise) 85%, #fff); }
 .modal__body .mgal .mgal__img .cover img { object-fit: contain; object-position: center; }
+
+/* ---- hero: angka dampak ---- */
+.glance { grid-template-columns: repeat(3, 1fr); max-width: 680px; }
+.glance dd { color: var(--blue); font-size: 1.7rem; }
+.glance dt { display: flex; flex-direction: column; gap: 3px; }
+.glance dt b { font-family: var(--font-head); font-size: .98rem; font-weight: 700; color: var(--text); }
+.glance dt span { font-size: .8rem; color: var(--muted); }
+
+/* ---- pendidikan: lebih berwarna ---- */
+.edu__school { color: var(--blue); }
+.edu__degree { background: linear-gradient(90deg, var(--text), var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.pill { color: var(--blue); background: var(--blue-soft); border-color: transparent; font-weight: 600; }
+.gpa__val { background: linear-gradient(110deg, var(--blue), var(--red)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.gpa__val small { -webkit-text-fill-color: var(--muted); }
+.edu__site { display: inline-flex; align-items: center; gap: 7px; margin-top: 12px; padding: 7px 14px; border-radius: 999px; font-size: .86rem; font-weight: 600; color: var(--blue); background: var(--blue-soft); transition: background .2s, color .2s, transform .2s; }
+.edu__site .ic { width: 14px; height: 14px; }
+.edu__site:hover, .edu__site:focus-visible { background: var(--blue); color: var(--on-blue, #fff); transform: translateY(-1px); }
+.edu__site[hidden] { display: none; }
+#eduCourses .chip { position: relative; padding-left: 28px; }
+#eduCourses .chip::before { content: ""; position: absolute; left: 12px; top: 50%; width: 7px; height: 7px; margin-top: -3.5px; border-radius: 50%; background: var(--blue); }
+#eduCourses .chip:nth-child(3n+2)::before { background: var(--red); }
+#eduCourses .chip:nth-child(3n)::before { background: var(--gold); }
+#eduCourses .chip:hover { border-color: var(--blue); color: var(--blue); }
+.edu__hl li strong { color: var(--blue); }
+
+/* credential ID di kartu sertifikat */
+.card__cred { margin: -2px 0 8px; font-size: .78rem; line-height: 1.35; color: var(--muted); word-break: break-all; }
+.card__cred span { font-weight: 700; letter-spacing: .02em; color: var(--text); }
+.card__cred span::after { content: ":"; }

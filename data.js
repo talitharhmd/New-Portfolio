@@ -32,8 +32,11 @@ const CONFIG = {
 };
 
 /* ---------- Tools (klik untuk melihat proyek yang memakainya) ---------- */
+// Logo tools: otomatis dari Simple Icons (slug + warna). Kalau logo tidak ada di sana, yang tampil monogram huruf.
+// Mau pakai logo sendiri? Taruh file di img/tools/ lalu tambahkan  img: "img/tools/nama-file.png"  pada tool itu.
+// Contoh:  { n: "Power BI", slug: "powerbi", c: "F2C811", img: "img/tools/powerbi.png" },
 const TOOLS = [
-  { group: L("Programming & development", "Pemrograman & pengembangan"), items: [
+  { group: L("Programming & Development", "Pemrograman & Pengembangan"), items: [
     { n: "Python", slug: "python", c: "3776AB" },
     { n: "MySQL", slug: "mysql", c: "4479A1" },
     { n: "Streamlit", slug: "streamlit", c: "FF4B4B" },
@@ -44,7 +47,7 @@ const TOOLS = [
     { n: "Jupyter", slug: "jupyter", c: "F37626" },
     { n: "Google Colab", slug: "googlecolab", c: "F9AB00" }
   ]},
-  { group: L("BI & visualization", "BI & visualisasi"), items: [
+  { group: L("BI & Visualization", "BI & Visualisasi"), items: [
     { n: "Looker Studio", slug: "looker", c: "4285F4" },
     { n: "Power BI", slug: "powerbi", c: "F2C811" },
     { n: "Tableau", slug: "tableau", c: "E97627" },
@@ -52,12 +55,12 @@ const TOOLS = [
     { n: "Figma", slug: "figma", c: "F24E1E" },
     { n: "Canva", slug: "canva", c: "00C4CC" }
   ]},
-  { group: L("Office & enterprise", "Office & enterprise"), items: [
+  { group: L("Office & Enterprise", "Office & Enterprise"), items: [
     { n: "Microsoft Office", k: ["Excel"], slug: "microsoftoffice", c: "D83B01" },
     { n: "Google Sheets", slug: "googlesheets", c: "34A853" },
     { n: "SAP", slug: "sap", c: "0FAAFF" }
   ]},
-  { group: L("Data engineering & APIs", "Data engineering & API"), items: [
+  { group: L("Data Engineering & APIs", "Data Engineering & API"), items: [
     { n: "Pentaho", slug: "pentaho", c: "1C7ED6" },
     { n: "Postman", slug: "postman", c: "FF6C37" },
     { n: "MongoDB", slug: "mongodb", c: "47A248" },
@@ -92,7 +95,8 @@ const SOFT_SKILLS = [
 
 /* ---------- Pendidikan ---------- */
 const EDUCATION = {
-  school: "Telkom University Surabaya",
+  school: "Telkom University",
+  site: "https://bds-sby.telkomuniversity.ac.id/",
   degree: L("Data Science, Bachelor's degree (S.Si.D.)", "Sains Data, S1 (S.Si.D.)"),
   years: "2022 – 2026",
   courses: [
@@ -226,7 +230,7 @@ const EXPERIENCE = {
     },
     {
       role: L("Speaker: Data Science Welcome Party", "Pembicara: Welcome Party Data Science"),
-      org: "Telkom University Surabaya", logo: "img/telkom-logo",
+      org: "Telkom University", logo: "img/telkom-logo",
       period: L("Sep 2024", "Sep 2024"),
       loc: L("Surabaya, Indonesia", "Surabaya, Indonesia"),
       logo: "img/telkom-logo", mono: "TU", doc: "https://www.linkedin.com/in/talitha-rahmadewati-witanto/",
@@ -244,7 +248,7 @@ const EXPERIENCE = {
     },
     {
       role: L("Facilitator: PKKMB Dewangkara Maetala 2024", "Fasilitator: PKKMB Dewangkara Maetala 2024"),
-      org: "Telkom University Surabaya", logo: "img/telkom-logo",
+      org: "Telkom University", logo: "img/telkom-logo",
       period: L("May – Sep 2024", "Mei – Sep 2024"),
       loc: L("Surabaya, Indonesia", "Surabaya, Indonesia"),
       logo: "img/telkom-logo", mono: "TU", doc: "https://lnkd.in/p/gpFs6DkJ",
@@ -265,7 +269,7 @@ const EXPERIENCE = {
     },
     {
       role: L("Facilitator: Data Science Orientation 2023", "Fasilitator: Orientasi Data Science 2023"),
-      org: "Telkom University Surabaya", logo: "img/telkom-logo",
+      org: "Telkom University", logo: "img/telkom-logo",
       period: L("Feb – Jun 2024", "Feb – Jun 2024"),
       logo: "img/telkom-logo", mono: "TU", doc: "",
       photos: ["img/exp/orientasi-1", "img/exp/orientasi-2", "img/exp/orientasi-3"],
@@ -295,7 +299,7 @@ const EXPERIENCE = {
 const PROJECTS = [
   {
     id: "pal", featured: true, cats: ["dashboard"],
-    type: L("Internship project", "Proyek magang"),
+    type: L("Internship Project", "Proyek Magang"),
     org: "PT PAL Indonesia", logo: "img/logos/pal", period: L("Sep 2025 – Jan 2026", "Sep 2025 – Jan 2026"),
     // dashboard + aplikasi: 3 halaman dengan keterangan singkat (halaman 1 otomatis jadi cover)
     pages: [
@@ -337,7 +341,7 @@ const PROJECTS = [
   },
   {
     id: "kpu", featured: true, cats: ["dashboard"],
-    type: L("Internship project", "Proyek magang"),
+    type: L("Internship Project", "Proyek Magang"),
     org: "KPU Kota Surabaya", logo: "img/logos/kpu", period: L("Jun – Aug 2025", "Jun – Agu 2025"),
     // dashboard lebih dari satu halaman: tulis tiap halaman di sini + keterangan singkat agar mudah dipahami.
     // Halaman 1 otomatis jadi cover. Tambah halaman baru cukup dengan menambah satu baris { src, cap }.
@@ -376,8 +380,8 @@ const PROJECTS = [
   },
   {
     id: "thesis", featured: true, cats: ["ml"],
-    type: L("Bachelor's thesis", "Skripsi S1"),
-    org: "Telkom University Surabaya", logo: "img/telkom-logo", period: L("2026", "2026"),
+    type: L("Bachelor's Thesis", "Skripsi S1"),
+    org: "Telkom University", logo: "img/telkom-logo", period: L("Sep 2025 – Jun 2026", "Sep 2025 – Jun 2026"),
     img: "img/featured-project/project-thesis.png",
     title: L("Data Science Research Trend Analysis with Topic Modeling and Word Embedding", "Analisis Tren Riset Sains Data Menggunakan Topic Modeling dan Word Embedding"),
     summary: L("LDA topic distributions fused with word embeddings, then clustered, to map where data science research is heading across **3,326 abstracts**.",
@@ -410,12 +414,12 @@ const PROJECTS = [
       { src: "img/projects/thesis-4", cap: L("Streamlit dashboard: dataset overview and LDA topic modeling", "Dashboard Streamlit: ringkasan dataset dan topic modeling LDA") },
       { src: "img/projects/thesis-5", cap: L("Streamlit dashboard: dimensionality reduction, embeddings and clustering results", "Dashboard Streamlit: reduksi dimensi, embedding, dan hasil klasterisasi") }
     ],
-    confidential: false, links: { live: "", slides: "", github: "", linkedin: "", detail: "" }
+    confidential: false, links: { live: "", slides: "", github: "https://github.com/talitharhmd/Tugas-Akhir", linkedin: "", detail: "" }
   },
   {
     id: "bike-dw", featured: false, cats: ["dashboard"],
-    type: L("Course project", "Proyek perkuliahan"),
-    org: "Telkom University Surabaya", logo: "img/telkom-logo", ctx: L("Data Warehouse course", "Mata kuliah Data Warehouse"), period: "",
+    type: L("Course Project", "Proyek Perkuliahan"),
+    org: "Telkom University", logo: "img/telkom-logo", ctx: L("Data Warehouse course", "Mata kuliah Data Warehouse"), period: "",
     img: "img/projects/bike-dw",
     title: L("Bicycle Sales Data Warehouse Design & Implementation", "Perancangan dan Implementasi Data Warehouse Penjualan Sepeda"),
     summary: L("A Kimball-style sales data warehouse with a Pentaho ETL pipeline and an interactive Looker Studio dashboard.",
@@ -437,12 +441,13 @@ const PROJECTS = [
     ],
     skills: ["Data Warehousing", "ETL", "Data Modeling", "Sales Analysis", "Data Visualization"],
     tools: ["Pentaho", "Excel", "Power BI", "Looker Studio"],
-    confidential: false, links: { live: "", slides: "", github: "", linkedin: "", detail: "" }
+    team: { size: 4, members: [{ n: "Alfi Purwaningrum", u: "https://www.linkedin.com/in/alfi-purwaningrum-234880246/" }, { n: "Marsha Trista Aulia", u: "https://www.linkedin.com/in/marsha-trista-aulia/" }, { n: "Galuh Andini", u: "" }] },
+    confidential: false, links: { live: "", slides: "", github: "", linkedin: "https://lnkd.in/p/gYuqyz6Z", detail: "" }
   },
   {
     id: "health-eda", featured: false, cats: ["dashboard"],
-    type: L("Course project", "Proyek perkuliahan"),
-    org: "Telkom University Surabaya", logo: "img/telkom-logo", ctx: L("EDA on 2018–2021 data", "EDA data 2018–2021"), period: "",
+    type: L("Course Project", "Proyek Perkuliahan"),
+    org: "Telkom University", logo: "img/telkom-logo", ctx: L("EDA on 2018–2021 data", "EDA data 2018–2021"), period: "",
     img: "img/projects/health-eda",
     title: L("Central Java Health EDA & Dashboard (SDG 3)", "Exploratory Data Analysis dan Dashboard Kesehatan Jawa Tengah (SDG 3)"),
     summary: L("Exploratory analysis of health facilities, workers, disease cases and insurance coverage in Central Java, delivered as a Power BI dashboard with recommendations.",
@@ -466,12 +471,13 @@ const PROJECTS = [
     ],
     skills: ["EDA", "Data Cleaning", "Data Integration", "Data Visualization", "Dashboard Development"],
     tools: ["Python", "Excel", "VS Code", "Power BI"],
-    confidential: true, links: { live: "", slides: "", github: "", linkedin: "", detail: "" }
+    team: { size: 3, members: [{ n: "Alfi Purwaningrum", u: "https://www.linkedin.com/in/alfi-purwaningrum-234880246/" }, { n: "Helga Fadhil Raditya", u: "https://www.linkedin.com/in/helga-fadhil-raditya-64840a267/" }] },
+    confidential: true, links: { live: "", slides: "", github: "", linkedin: "https://lnkd.in/p/gB7rztmJ", detail: "" }
   },
   {
     id: "mental-health", featured: false, cats: ["dashboard", "ml"],
-    type: L("Research project", "Proyek riset"),
-    org: "Telkom University Surabaya", logo: "img/telkom-logo", period: L("Feb – Jun 2025", "Feb – Jun 2025"),
+    type: L("Research Project", "Proyek Riset"),
+    org: "Telkom University", logo: "img/telkom-logo", period: L("Feb – Jun 2025", "Feb – Jun 2025"),
     img: "img/projects/mental-health",
     title: L("Mental Health Sentiment Classification with Naïve Bayes and SVM", "Klasifikasi Sentimen Kesehatan Mental Menggunakan Naïve Bayes dan SVM"),
     summary: L("Two classifiers compared on social media posts about mental health, with the results shown in a sentiment dashboard.",
@@ -499,8 +505,8 @@ const PROJECTS = [
   },
   {
     id: "tefar", featured: false, cats: ["dashboard"],
-    type: L("Course project", "Proyek perkuliahan"),
-    org: "Telkom University Surabaya", logo: "img/telkom-logo", ctx: L("OOP course", "Mata kuliah OOP"), period: "",
+    type: L("Course Project", "Proyek Perkuliahan"),
+    org: "Telkom University", logo: "img/telkom-logo", ctx: L("OOP course", "Mata kuliah OOP"), period: "",
     // tampilan aplikasi: 5 halaman dengan keterangan singkat (halaman 1 otomatis jadi cover)
     pages: [
       { src: "img/projects/tefar-1",
@@ -535,11 +541,12 @@ const PROJECTS = [
     ],
     skills: ["OOP", "Business Process Automation", "Data Validation", "Data Management", "Functional Design"],
     tools: ["NetBeans", "MySQL", "Java"],
-    confidential: false, links: { live: "", slides: "", github: "", linkedin: "", detail: "" }
+    team: { size: 4, members: [{ n: "Eka Putri Oktavia", u: "https://www.linkedin.com/in/ekaputrioktavia1/" }, { n: "Ahmad Ihda Falah Annur", u: "https://www.linkedin.com/in/ahmadihdafalahannur/" }, { n: "Alfi Purwaningrum", u: "https://www.linkedin.com/in/alfi-purwaningrum-234880246/" }] },
+    confidential: false, links: { live: "", slides: "", github: "", linkedin: "https://lnkd.in/p/gKVSq2iE", detail: "" }
   },
   {
     id: "digital-divide", featured: false, cats: ["viz"],
-    type: L("Infographic competition", "Kompetisi infografis"),
+    type: L("Infographic Competition", "Kompetisi Infografis"),
     org: "PENS", logo: "img/logos/pens", ctx: "E-COMP 2024", result: L("Finalist", "Finalis"), period: L("2024", "2024"), sub: L("E-COMP 2024 | Finalist", "E-COMP 2024 | Finalis"),
     img: "img/projects/digital-divide",
     title: L("Infographic: Internet Access Divide: “Desa ke Dunia”", "Infografis Kesenjangan Akses Internet: “Desa ke Dunia”"),
@@ -564,7 +571,7 @@ const PROJECTS = [
   },
   {
     id: "social-comparison", featured: false, cats: ["viz"],
-    type: L("Scientific poster competition", "Lomba poster ilmiah"),
+    type: L("Scientific Poster Competition", "Lomba Poster Ilmiah"),
     org: "Universitas Sumatera Utara", logo: "img/logos/usu", ctx: "Psy Accretion 2023", result: L("Finalist", "Finalis"), period: L("2023", "2023"), sub: L("Psy Accretion 2023 | Finalist", "Psy Accretion 2023 | Finalis"),
     img: "img/projects/social-comparison",
     title: L("Infographic: Stop Social Comparison", "Infografis: Stop Perbandingan Sosial, Mulai Menghargai Diri Sendiri"),
@@ -592,7 +599,7 @@ const PROJECTS = [
   },
   {
     id: "sentra-edu", featured: false, cats: ["viz"],
-    type: L("Infographic competition", "Kompetisi infografis"),
+    type: L("Infographic Competition", "Kompetisi Infografis"),
     org: "Puspresnas", logo: "img/logos/puspresnas", period: L("2025", "2025"),
     img: "img/projects/sentra-edu",
     title: L("SENTRA-EDU: Education Inequality in Indonesia", "SENTRA-EDU: Ketimpangan Pendidikan di Indonesia"),
@@ -619,7 +626,7 @@ const PROJECTS = [
   },
   {
     id: "jateng-disaster", featured: false, cats: ["viz"],
-    type: L("Infographic competition", "Kompetisi infografis"),
+    type: L("Infographic Competition", "Kompetisi Infografis"),
     org: "Puspresnas", logo: "img/logos/puspresnas", period: L("2023", "2023"),
     img: "img/projects/jateng-disaster",
     title: L("Infographic: Central Java Natural Disaster Alert", "Infografis Waspada! Jawa Tengah Darurat Bencana Alam"),
@@ -647,7 +654,7 @@ const PROJECTS = [
   },
   {
     id: "growpath", featured: false, cats: ["ml"],
-    type: L("External project", "Proyek eksternal"),
+    type: L("External Project", "Proyek Eksternal"),
     org: "Ristek Fasilkom UI", logo: "img/logos/ristek", ctx: L("SISTECH 2025: MLOps program", "SISTECH 2025: Program MLOps"), period: "",
     // slide laporan akhir: 4 halaman dengan keterangan singkat (halaman 1 otomatis jadi cover)
     pages: [
@@ -696,11 +703,11 @@ const PROJECTS = [
         { n: "Galatea Aqilah", r: L("Digital Marketing", "Digital Marketing"), u: "" }
       ]
     },
-    confidential: false, links: { live: "", slides: "", github: "", linkedin: "", detail: "" }
+    confidential: false, links: { live: "", slides: "", github: "", linkedin: "https://lnkd.in/p/g7DD5DUH", detail: "" }
   },
   {
     id: "election-sentiment", featured: false, cats: ["ml"],
-    type: L("Competition project", "Proyek kompetisi"),
+    type: L("Competition Project", "Proyek Kompetisi"),
     org: "UPN “Veteran” Jawa Timur", logo: "img/logos/upn", ctx: L("2024 election data", "Data Pemilu 2024"), period: "",
     img: "img/projects/election-sentiment",
     title: L("Election Sentiment Analysis on Twitter Data", "Analisis Sentimen Pemilu Menggunakan Data Twitter"),
@@ -728,8 +735,8 @@ const PROJECTS = [
   },
   {
     id: "essay-scoring", featured: false, cats: ["ml"],
-    type: L("Course project", "Proyek mata kuliah"),
-    org: "Telkom University Surabaya", logo: "img/telkom-logo", ctx: L("Text Mining course", "Mata kuliah Text Mining"), period: L("2025", "2025"),
+    type: L("Course Project", "Proyek Mata Kuliah"),
+    org: "Telkom University", logo: "img/telkom-logo", ctx: L("Text Mining course", "Mata kuliah Text Mining"), period: L("2025", "2025"),
     pages: [
       { src: "img/projects/essay-scoring-1",
         cap: L("Results overview: average cosine similarity (FastText 0.80 vs Word2Vec 0.53) and score distribution", "Ringkasan hasil: rata-rata cosine similarity (FastText 0,80 vs Word2Vec 0,53) dan distribusi skor") },
@@ -777,8 +784,8 @@ const PROJECTS = [
   },
   {
     id: "kmeans-segmentation", featured: false, cats: ["ml"],
-    type: L("Course project", "Proyek mata kuliah"),
-    org: "Telkom University Surabaya", logo: "img/telkom-logo", ctx: L("Machine Learning course", "Mata kuliah Machine Learning"), period: "",
+    type: L("Course Project", "Proyek Mata Kuliah"),
+    org: "Telkom University", logo: "img/telkom-logo", ctx: L("Machine Learning course", "Mata kuliah Machine Learning"), period: "",
     pages: [
       { src: "img/projects/kmeans-segmentation-1",
         cap: L("Clustering result: two customer segments by annual income and purchases (k = 2)", "Hasil clustering: dua segmen pelanggan berdasarkan pendapatan tahunan dan pembelian (k = 2)") },
@@ -870,7 +877,7 @@ const CERTS = [
     note: L("Certificate of participation as speaker.", "Sertifikat partisipasi sebagai pemateri.") },
   { id: "facilitator-pkkmb", cat: "activity", url: "", cred: "1277/KMH10/TUKS-WDR03/2024",
     title: L("Facilitator: PKKMB Telkom University 2024", "Fasilitator: PKKMB Telkom University 2024"),
-    issuer: "Telkom University Surabaya", date: "2024",
+    issuer: "Telkom University", date: "2024",
     note: L("Guided and mentored new students during the university orientation.", "Membimbing dan mendampingi mahasiswa baru selama orientasi universitas.") },
 
   { id: "asean-sap", cat: "license", url: "", cred: "4049/SERT/24-DSI-04/V/2024", field: L("Data Analytics", "Data Analytics"),
@@ -961,49 +968,49 @@ const I18N = {
     "hero.status": "Open to Data Analyst, BI & Data Science roles",
     "hero.hi": "Hi, I'm",
     "hero.lead": "**Data Science graduate** with **about one year of hands-on experience** in data analysis, data visualization and machine learning. I turn messy, complex data into **dashboards and insights that support real decisions**.",
-    "hero.cta.projects": "View projects", "hero.cta.cv": "Download CV", "hero.cta.pf": "Download portfolio",
-    "hero.gpa": "GPA", "hero.based": "Current location", "hero.loc": "Surabaya, Indonesia", "hero.interns": "internships", "hero.projects": "projects", "hero.certs": "certificates & awards",
-    "about.title": "About me",
+    "hero.cta.projects": "View Projects", "hero.cta.cv": "Download CV", "hero.cta.pf": "Download Portfolio",
+    "hero.g1t": "Months", "hero.g1d": "Professional Data Experience", "hero.g2t": "Projects", "hero.g2d": "Data Science & Analytics", "hero.g3t": "Core Areas", "hero.g3d": "Analytics, Visualization & ML", "hero.s1": "Election Records Structured", "hero.s2": "Reporting Time", "hero.s3": "Recording Errors", "edu.site": "Visit Official Website", "hero.gpa": "GPA", "hero.based": "Current Location", "hero.loc": "Surabaya, Indonesia", "hero.interns": "internships", "hero.projects": "Projects Completed", "hero.certs": "certificates & awards",
+    "about.title": "About Me",
     "about.sub": "Who I am and what I bring to a data team.",
-    "about.p1": "I'm a **Data Science graduate (S.Si.D.)** from Telkom University Surabaya with **about one year of hands-on experience** through internships and projects in data analysis, data visualization and machine learning.",
+    "about.p1": "I'm a **Data Science graduate (S.Si.D.)** from Telkom University with **about one year of hands-on experience** through internships and projects in data analysis, data visualization and machine learning.",
     "about.p2": "I've **cleaned and validated data, built dashboards, automated reporting** and evaluated models in asset management, elections, health and research-trend analysis.",
     "about.p3": "What I enjoy most is turning **complex data into insights and practical solutions** that people can act on, and I keep learning to sharpen my technical skills.",
-    "about.domains": "Where I've applied data",
-    "dom.asset": "Asset management", "dom.election": "Elections & public information", "dom.health": "Health", "dom.research": "Research-trend analysis", "dom.edu": "Education & society",
+    "about.domains": "Where I've Applied Data",
+    "dom.asset": "Asset Management", "dom.election": "Elections & Public Information", "dom.health": "Health", "dom.research": "Research-trend Analysis", "dom.edu": "Education & Society",
     "edu.title": "Education",
-    "edu.course": "Relevant coursework", "edu.sub": "Formal academic background, relevant coursework and leadership activities.", "edu.gpa": "Cumulative GPA", "edu.roles": "Roles & activities", "nav.edu": "Education",
-    "skills.title": "Tools & skills",
+    "edu.course": "Relevant Coursework", "edu.sub": "Formal academic background, relevant coursework and leadership activities.", "edu.gpa": "Cumulative GPA", "edu.roles": "Roles & Activities", "nav.edu": "Education",
+    "skills.title": "Tools & Skills",
     "skills.sub": "Click a tool to see the projects where I used it.",
     "skills.usedin": "Used in", "skills.none": "No project lists this tool yet.",
-    "skills.hard": "Hard skills", "skills.soft": "Soft skills",
+    "skills.hard": "Hard Skills", "skills.soft": "Soft Skills",
     "exp.title": "Professional Experience",
-    "exp.sub": "Hands-on internships in **asset management** and **election data**, an **MLOps** mentorship, plus leadership and speaking work alongside my studies.", "exp.doc": "View documentation on LinkedIn", "exp.nophoto": "Documentation",
-    "exp.tab.pro": "Professional", "exp.tab.lead": "Leadership & speaking",
-    "proj.title": "Featured projects",
+    "exp.sub": "Hands-on internships in **asset management** and **election data**, an **MLOps** mentorship, plus leadership and speaking work alongside my studies.", "exp.doc": "View Documentation on LinkedIn", "exp.nophoto": "Documentation",
+    "exp.tab.pro": "Professional", "exp.tab.lead": "Leadership & Speaking",
+    "proj.title": "Featured Projects",
     "proj.sub": "Three projects that show how I work from raw data to something people use.",
-    "more.title": "More projects",
+    "more.title": "More Projects",
     "more.sub": "Course, competition and research work across dashboards, visualization and machine learning.",
-    "f.all": "All", "f.dashboard": "Dashboard analytics", "f.viz": "Data visualization", "f.ml": "Machine learning & AI",
-    "f.license": "Certifications", "f.award": "Competitions & awards", "f.activity": "Internships & activities",
-    "btn.inspect": "Open preview", "btn.verify": "View certificate", "btn.verifyOnline": "Open credential page", "btn.soon": "Link coming soon", "btn.fullsize": "Open full view", "btn.viewproj": "See the project", "m.docs": "Documentation", "btn.slides": "Slides / PPT", "btn.github": "GitHub", "btn.linkedin": "LinkedIn", "cert.done": "Issued", "lb.cred": "Credential ID", "m.noimg": "Project images not added yet", "m.page": "Page", "m.pages": "pages", "m.fullview": "Click to view full size", "m.pagesTitle": "Dashboard pages", "btn.viewpages": "See all {n} pages", "exp.docs": "Documentation", "exp.related": "Related project", "exp.docs.open": "View documentation", "fact.type": "Type", "fact.period": "Period", "fact.result": "Result", "lb.issuer": "Issued by", "lb.issued": "Issued", "lb.field": "Field", "lb.about": "About this certificate", "lb.zoom": "Click to zoom in or out", "cert.item": "Certificate", "cert.n": "certificates", "team.tag": "Team project", "team.title": "Team project", "team.of": "Team of {n}", "team.role": "My role", "team.members": "Team members", "team.intro": "This project was built together with a team.", "btn.details": "View details", "btn.live": "Open dashboard", "btn.more": "Read more",
+    "f.all": "All", "f.dashboard": "Dashboard Analytics", "f.viz": "Data Visualization", "f.ml": "Machine Learning & AI",
+    "f.license": "Certifications", "f.award": "Competitions & Awards", "f.activity": "Internships & Activities",
+    "btn.inspect": "Open Preview", "btn.verify": "View Certificate", "btn.verifyOnline": "Open Credential Page", "btn.soon": "Link Coming Soon", "btn.fullsize": "Open Full View", "btn.viewproj": "See the Project", "m.docs": "Documentation", "btn.slides": "Slides / PPT", "btn.github": "GitHub", "btn.linkedin": "LinkedIn", "cert.done": "Issued", "lb.cred": "Credential ID", "m.noimg": "Project images not added yet", "m.page": "Page", "m.pages": "Pages", "m.fullview": "Click to view full size", "m.pagesTitle": "Dashboard Pages", "btn.viewpages": "See all {n} pages", "exp.docs": "Documentation", "exp.related": "Related Project", "exp.docs.open": "View Documentation", "fact.type": "Type", "fact.period": "Period", "fact.result": "Result", "lb.issuer": "Issued by", "lb.issued": "Issued", "lb.field": "Field", "lb.about": "About This Certificate", "lb.zoom": "Click to zoom in or out", "cert.item": "Certificate", "cert.n": "Certificates", "team.tag": "Team Project", "team.title": "Team Project", "team.of": "Team of {n}", "team.role": "My Role", "team.members": "Team Members", "team.intro": "This project was built together with a team.", "btn.details": "View Details", "btn.live": "Open Dashboard", "btn.more": "Read More",
     "conf": "Confidential data: the dashboard is not public",
-    "showing": "Showing {a}–{b} of {t}", "pg.prev": "Previous page", "pg.next": "Next page", "btn.viewcert": "View certificate",
-    "m.overview": "Overview", "m.did": "What I did", "m.results": "Results", "m.skills": "Skills", "m.tools": "Tools", "m.close": "Close",
-    "certs.title": "Certificates & awards",
+    "showing": "Showing {a}–{b} of {t}", "pg.prev": "Previous Page", "pg.next": "Next Page", "btn.viewcert": "View Certificate",
+    "m.overview": "Overview", "m.did": "What I Did", "m.results": "Results", "m.skills": "Skills", "m.tools": "Tools", "m.close": "Close",
+    "certs.title": "Certificates & Awards",
     "certs.sub": "Professional certifications first, then competitions and internship certificates. Click a certificate image to preview it.",
-    "certs.more": "Show more", "certs.less": "Show fewer",
+    "certs.more": "Show More", "certs.less": "Show Fewer",
     "lb.prev": "Previous", "lb.next": "Next", "lb.noimg": "Certificate image not added yet",
     "blog.title": "Writing",
     "blog.sub": "Short writing on data basics, data storytelling and my first steps in deploying a data project, published on Medium.",
-    "blog.read": "Read on Medium", "blog.soon": "Link coming soon", "blog.all": "All posts on Medium", "blog.latest": "Latest", "blog.mins": "min read", "blog.series": "Series", "blog.follow": "Follow on Instagram", "blog.comingsoon": "Coming soon", "blog.count": "articles published", "blog.platform": "Platform", "blog.topics": "Topics", "blog.topics.v": "Data basics · Data storytelling · Deployment",
-    "contact.title": "Let's connect",
+    "blog.read": "Read on Medium", "blog.soon": "Link coming soon", "blog.all": "All Posts on Medium", "blog.latest": "Latest", "blog.mins": "Min Read", "blog.series": "Series", "blog.follow": "Follow on Instagram", "blog.comingsoon": "Coming Soon", "blog.count": "Articles Published", "blog.platform": "Platform", "blog.topics": "Topics", "blog.topics.v": "Data basics · Data storytelling · Deployment",
+    "contact.title": "Let's Connect",
     "contact.sub": "Thanks for visiting my portfolio. I'm open to new opportunities, meaningful collaboration and constructive feedback. Reach out to talk data analysis or data science, trade ideas, or explore a data-driven project.",
     "contact.email": "Email", "contact.loc": "Location", "contact.avail": "Available",
-    "contact.copy": "Copy email", "contact.copied": "Email copied",
-    "form.name": "Your name", "form.email": "Your email", "form.subject": "Subject", "form.msg": "Your message",
-    "form.send": "Open in email app", "form.note": "This opens your email app with the message ready to send.",
+    "contact.copy": "Copy Email", "contact.copied": "Email copied",
+    "form.name": "Your Name", "form.email": "Your Email", "form.subject": "Subject", "form.msg": "Your Message",
+    "form.send": "Open in Email App", "form.note": "This opens your email app with the message ready to send.",
     "form.err.name": "Enter your name.", "form.err.email": "Enter a valid email address.", "form.err.msg": "Write a short message.",
-    "foot.built": "© 2026 Talitharhmd. All Rights Reserved.", "foot.top": "Back to top", "dock.talk": "Let's talk"
+    "foot.built": "© 2026 Talitharhmd. All Rights Reserved.", "foot.top": "Back to Top", "dock.talk": "Let's Talk"
   },
   id: {
     "skip": "Lewati ke konten",
@@ -1013,48 +1020,48 @@ const I18N = {
     "hero.status": "Terbuka untuk posisi Data Analyst, BI & Data Science",
     "hero.hi": "Halo, saya",
     "hero.lead": "Lulusan Sains Data dengan pengalaman praktis sekitar 1 tahun di analisis data, visualisasi data, dan machine learning. Saya mengubah data yang kompleks dan berantakan menjadi dashboard dan insight untuk mendukung pengambilan keputusan.",
-    "hero.cta.projects": "Lihat proyek", "hero.cta.cv": "Unduh CV", "hero.cta.pf": "Unduh portofolio",
-    "hero.gpa": "IPK", "hero.based": "Lokasi saat ini", "hero.loc": "Surabaya, Indonesia", "hero.interns": "magang", "hero.projects": "proyek", "hero.certs": "sertifikat & penghargaan",
-    "about.title": "Tentang saya",
+    "hero.cta.projects": "Lihat Proyek", "hero.cta.cv": "Unduh CV", "hero.cta.pf": "Unduh Portofolio",
+    "hero.g1t": "Bulan", "hero.g1d": "Pengalaman Profesional Bidang Data", "hero.g2t": "Projects", "hero.g2d": "Data Science & Analytics", "hero.g3t": "Bidang Utama", "hero.g3d": "Analitik, Visualisasi & ML", "hero.s1": "Data Pemilu Terstruktur", "hero.s2": "Waktu Pelaporan", "hero.s3": "Kesalahan Pencatatan", "edu.site": "Kunjungi Website Resmi", "hero.gpa": "IPK", "hero.based": "Lokasi Saat Ini", "hero.loc": "Surabaya, Indonesia", "hero.interns": "magang", "hero.projects": "Projects Selesai", "hero.certs": "sertifikat & penghargaan",
+    "about.title": "Tentang Saya",
     "about.sub": "Siapa saya dan apa yang bisa saya bawa ke tim data.",
-    "about.p1": "Saya **lulusan Sains Data (S.Si.D.)** Telkom University Surabaya dengan **pengalaman praktis sekitar 1 tahun** melalui magang dan proyek di bidang analisis data, visualisasi data, dan machine learning.",
+    "about.p1": "Saya **lulusan Sains Data (S.Si.D.)** Telkom University dengan **pengalaman praktis sekitar 1 tahun** melalui magang dan proyek di bidang analisis data, visualisasi data, dan machine learning.",
     "about.p2": "Saya berpengalaman dalam **data cleaning, validasi data, pengembangan dashboard, otomatisasi pelaporan**, dan evaluasi model pada bidang pengelolaan aset, pemilu, kesehatan, dan analisis tren penelitian.",
     "about.p3": "Yang paling saya sukai adalah mengolah **data yang kompleks menjadi insight dan solusi praktis** yang dapat ditindaklanjuti, disertai rasa ingin tahu yang tinggi dan komitmen untuk terus belajar.",
-    "about.domains": "Bidang yang pernah saya garap",
-    "dom.asset": "Pengelolaan aset", "dom.election": "Pemilu & informasi publik", "dom.health": "Kesehatan", "dom.research": "Analisis tren penelitian", "dom.edu": "Pendidikan & sosial",
+    "about.domains": "Bidang yang Pernah Saya Garap",
+    "dom.asset": "Pengelolaan Aset", "dom.election": "Pemilu & Informasi Publik", "dom.health": "Kesehatan", "dom.research": "Analisis Tren Penelitian", "dom.edu": "Pendidikan & Sosial",
     "edu.title": "Pendidikan",
-    "edu.course": "Mata kuliah relevan", "edu.sub": "Latar belakang akademik, mata kuliah relevan, dan aktivitas kepemimpinan.", "edu.gpa": "IPK kumulatif", "edu.roles": "Peran & aktivitas", "nav.edu": "Pendidikan",
-    "skills.title": "Tools & keahlian",
+    "edu.course": "Mata Kuliah Relevan", "edu.sub": "Latar belakang akademik, mata kuliah relevan, dan aktivitas kepemimpinan.", "edu.gpa": "IPK Kumulatif", "edu.roles": "Peran & Aktivitas", "nav.edu": "Pendidikan",
+    "skills.title": "Tools & Keahlian",
     "skills.sub": "Klik sebuah tool untuk melihat proyek tempat saya memakainya.",
     "skills.usedin": "Dipakai di", "skills.none": "Belum ada proyek yang mencantumkan tool ini.",
-    "skills.hard": "Hard skills", "skills.soft": "Soft skills",
+    "skills.hard": "Hard Skills", "skills.soft": "Soft Skills",
     "exp.title": "Pengalaman Profesional",
-    "exp.sub": "Magang langsung di bidang **pengelolaan aset** dan **data pemilu**, mentorship **MLOps**, ditambah kegiatan kepemimpinan dan public speaking di sela kuliah.", "exp.doc": "Lihat dokumentasi di LinkedIn", "exp.nophoto": "Dokumentasi",
-    "exp.tab.pro": "Profesional", "exp.tab.lead": "Kepemimpinan & public speaking",
-    "proj.title": "Proyek unggulan",
+    "exp.sub": "Magang langsung di bidang **pengelolaan aset** dan **data pemilu**, mentorship **MLOps**, ditambah kegiatan kepemimpinan dan public speaking di sela kuliah.", "exp.doc": "Lihat Dokumentasi di LinkedIn", "exp.nophoto": "Dokumentasi",
+    "exp.tab.pro": "Profesional", "exp.tab.lead": "Kepemimpinan & Public Speaking",
+    "proj.title": "Proyek Unggulan",
     "proj.sub": "Tiga proyek yang menunjukkan cara kerja saya dari data mentah hingga sesuatu yang benar-benar dipakai.",
-    "more.title": "Proyek lainnya",
+    "more.title": "Proyek Lainnya",
     "more.sub": "Proyek kuliah, kompetisi, dan riset di bidang dashboard, visualisasi, dan machine learning.",
-    "f.all": "Semua", "f.dashboard": "Dashboard analytics", "f.viz": "Visualisasi data", "f.ml": "Machine learning & AI",
-    "f.license": "Sertifikasi", "f.award": "Kompetisi & penghargaan", "f.activity": "Magang & kegiatan",
-    "btn.inspect": "Lihat pratinjau", "btn.verify": "Lihat sertifikat", "btn.verifyOnline": "Buka halaman kredensial", "btn.soon": "Link menyusul", "btn.fullsize": "Buka tampilan penuh", "btn.viewproj": "Lihat proyek", "m.docs": "Dokumentasi", "btn.slides": "Slide / PPT", "btn.github": "GitHub", "btn.linkedin": "LinkedIn", "cert.done": "Terbit", "lb.cred": "ID Kredensial", "m.noimg": "Gambar proyek belum ditambahkan", "m.page": "Halaman", "m.pages": "halaman", "m.fullview": "Klik untuk melihat ukuran penuh", "m.pagesTitle": "Halaman dashboard", "btn.viewpages": "Lihat {n} halaman", "exp.docs": "Dokumentasi", "exp.related": "Proyek terkait", "exp.docs.open": "Lihat dokumentasi", "fact.type": "Jenis", "fact.period": "Periode", "fact.result": "Hasil", "lb.issuer": "Diterbitkan oleh", "lb.issued": "Tanggal terbit", "lb.field": "Bidang", "lb.about": "Tentang sertifikat", "lb.zoom": "Klik untuk memperbesar atau memperkecil", "cert.item": "Sertifikat", "cert.n": "sertifikat", "team.tag": "Proyek tim", "team.title": "Proyek tim", "team.of": "Tim {n} orang", "team.role": "Peran saya", "team.members": "Anggota tim", "team.intro": "Proyek ini dikerjakan bersama tim.", "btn.details": "Lihat detail", "btn.live": "Buka dashboard", "btn.more": "Selengkapnya",
+    "f.all": "Semua", "f.dashboard": "Dashboard Analytics", "f.viz": "Visualisasi Data", "f.ml": "Machine Learning & AI",
+    "f.license": "Sertifikasi", "f.award": "Kompetisi & Penghargaan", "f.activity": "Magang & Kegiatan",
+    "btn.inspect": "Lihat Pratinjau", "btn.verify": "Lihat Sertifikat", "btn.verifyOnline": "Buka Halaman Kredensial", "btn.soon": "Link Menyusul", "btn.fullsize": "Buka Tampilan Penuh", "btn.viewproj": "Lihat Proyek", "m.docs": "Dokumentasi", "btn.slides": "Slide / PPT", "btn.github": "GitHub", "btn.linkedin": "LinkedIn", "cert.done": "Terbit", "lb.cred": "ID Kredensial", "m.noimg": "Gambar proyek belum ditambahkan", "m.page": "Halaman", "m.pages": "Halaman", "m.fullview": "Klik untuk melihat ukuran penuh", "m.pagesTitle": "Halaman Dashboard", "btn.viewpages": "Lihat {n} halaman", "exp.docs": "Dokumentasi", "exp.related": "Proyek Terkait", "exp.docs.open": "Lihat Dokumentasi", "fact.type": "Jenis", "fact.period": "Periode", "fact.result": "Hasil", "lb.issuer": "Diterbitkan Oleh", "lb.issued": "Tanggal Terbit", "lb.field": "Bidang", "lb.about": "Tentang Sertifikat", "lb.zoom": "Klik untuk memperbesar atau memperkecil", "cert.item": "Sertifikat", "cert.n": "Sertifikat", "team.tag": "Proyek Tim", "team.title": "Proyek Tim", "team.of": "Tim {n} orang", "team.role": "Peran Saya", "team.members": "Anggota Tim", "team.intro": "Proyek ini dikerjakan bersama tim.", "btn.details": "Lihat Detail", "btn.live": "Buka Dashboard", "btn.more": "Selengkapnya",
     "conf": "Data rahasia: dashboard tidak dapat diakses publik",
-    "showing": "Menampilkan {a}–{b} dari {t}", "pg.prev": "Halaman sebelumnya", "pg.next": "Halaman berikutnya", "btn.viewcert": "Lihat sertifikat",
-    "m.overview": "Ringkasan", "m.did": "Yang saya kerjakan", "m.results": "Hasil", "m.skills": "Keahlian", "m.tools": "Tools", "m.close": "Tutup",
-    "certs.title": "Sertifikat & penghargaan",
+    "showing": "Menampilkan {a}–{b} dari {t}", "pg.prev": "Halaman Sebelumnya", "pg.next": "Halaman Berikutnya", "btn.viewcert": "Lihat Sertifikat",
+    "m.overview": "Ringkasan", "m.did": "Yang Saya Kerjakan", "m.results": "Hasil", "m.skills": "Keahlian", "m.tools": "Tools", "m.close": "Tutup",
+    "certs.title": "Sertifikat & Penghargaan",
     "certs.sub": "Sertifikasi profesional lebih dulu, lalu kompetisi dan sertifikat magang. Klik gambar sertifikat untuk melihat pratinjau.",
-    "certs.more": "Tampilkan lebih banyak", "certs.less": "Tampilkan lebih sedikit",
+    "certs.more": "Tampilkan Lebih Banyak", "certs.less": "Tampilkan Lebih Sedikit",
     "lb.prev": "Sebelumnya", "lb.next": "Berikutnya", "lb.noimg": "Gambar sertifikat belum ditambahkan",
     "blog.title": "Tulisan",
     "blog.sub": "Tulisan singkat tentang dasar data, data storytelling, dan langkah pertamaku men-deploy proyek data, diterbitkan di Medium.",
-    "blog.read": "Baca di Medium", "blog.soon": "Tautan segera hadir", "blog.all": "Semua tulisan di Medium", "blog.latest": "Terbaru", "blog.mins": "menit baca", "blog.series": "Seri", "blog.follow": "Ikuti di Instagram", "blog.comingsoon": "Segera hadir", "blog.count": "artikel terbit", "blog.platform": "Platform", "blog.topics": "Topik", "blog.topics.v": "Dasar data · Data storytelling · Deployment",
-    "contact.title": "Mari terhubung",
+    "blog.read": "Baca di Medium", "blog.soon": "Tautan segera hadir", "blog.all": "Semua Tulisan di Medium", "blog.latest": "Terbaru", "blog.mins": "Menit Baca", "blog.series": "Seri", "blog.follow": "Ikuti di Instagram", "blog.comingsoon": "Segera Hadir", "blog.count": "Artikel Terbit", "blog.platform": "Platform", "blog.topics": "Topik", "blog.topics.v": "Dasar data · Data storytelling · Deployment",
+    "contact.title": "Mari Terhubung",
     "contact.sub": "Terima kasih telah mengunjungi portofolio saya. Saya terbuka terhadap peluang baru, kolaborasi yang bermakna, dan masukan yang membangun. Hubungi saya untuk berdiskusi seputar analisis data atau sains data, bertukar ide, maupun menjajaki proyek berbasis data.",
     "contact.email": "Email", "contact.loc": "Lokasi", "contact.avail": "Ketersediaan",
-    "contact.copy": "Salin email", "contact.copied": "Email disalin",
+    "contact.copy": "Salin Email", "contact.copied": "Email disalin",
     "form.name": "Nama Anda", "form.email": "Email Anda", "form.subject": "Subjek", "form.msg": "Pesan Anda",
-    "form.send": "Buka di aplikasi email", "form.note": "Tombol ini membuka aplikasi email dengan pesan yang sudah terisi.",
+    "form.send": "Buka di Aplikasi Email", "form.note": "Tombol ini membuka aplikasi email dengan pesan yang sudah terisi.",
     "form.err.name": "Isi nama Anda.", "form.err.email": "Masukkan alamat email yang valid.", "form.err.msg": "Tulis pesan singkat.",
-    "foot.built": "© 2026 Talitharhmd. Seluruh hak cipta dilindungi.", "foot.top": "Kembali ke atas", "dock.talk": "Ayo ngobrol"
+    "foot.built": "© 2026 Talitharhmd. Seluruh hak cipta dilindungi.", "foot.top": "Kembali ke Atas", "dock.talk": "Ayo Ngobrol"
   }
 };

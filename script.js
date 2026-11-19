@@ -143,7 +143,7 @@
       ${t.role ? `<p class="team__role"><strong>${esc(ui("team.role"))}:</strong> ${rich(T(t.role))}</p>` : ""}
       ${ms.length ? `<ul class="team__m" aria-label="${esc(ui("team.members"))}">${ms.map((m) => {
         const inner = `<i>${esc(initialsOf(m.n))}</i><span>${esc(m.n)}${m.r ? `<small>${esc(T(m.r))}</small>` : ""}</span>`;
-        return `<li>${m.u ? `<a href="${esc(m.u)}" target="_blank" rel="noopener noreferrer">${inner}</a>` : `<span class="team__p">${inner}</span>`}</li>`;
+        return `<li><span class="team__p">${inner}</span></li>`;
       }).join("")}</ul>` : ""}
     </section>`;
   }
@@ -211,8 +211,7 @@
     loadImg($("#eduLogoImg"), CONFIG.campusLogo, () => logo.classList.add("no-img"));
 
     // jumlah dinamis
-    $("#cntProjects").dataset.count = String(PROJECTS.length);
-    $("#cntCerts").dataset.count = String(CERTS.length);
+    const cp = $("#cntProjects"); if (cp) cp.dataset.count = String(PROJECTS.length);
 
     // tombol unduh (disembunyikan bila file belum ada di server)
     [["#dlCv", CONFIG.files.cv], ["#dlPf", CONFIG.files.portfolio]].forEach(([sel, href]) => {
@@ -248,18 +247,24 @@
     const s = dec ? v.toFixed(dec) : String(Math.round(v));
     return lang === "id" ? s.replace(".", ",") : s;
   }
+  // angka dengan awalan/akhiran (mis. −40%, 1,000+)
+  function numText(el, v, dec) {
+    let s = fmtNum(v, dec);
+    if (!dec && v >= 1000) s = Math.round(v).toLocaleString(lang === "id" ? "id-ID" : "en-US");
+    return (el.dataset.pre || "") + s + (el.dataset.suf || "");
+  }
   function runCounters() {
     const els = $$("[data-count]");
     const play = (el) => {
       if (el.id === "eduGpa") { const bar = $("#gpaBar"); if (bar) bar.style.width = (parseFloat(el.dataset.count) / 4 * 100) + "%"; }
       const target = parseFloat(el.dataset.count);
       const dec = parseInt(el.dataset.dec || "0", 10);
-      if (reduceMotion) { el.textContent = fmtNum(target, dec); return; }
+      if (reduceMotion) { el.textContent = numText(el, target, dec); return; }
       const t0 = performance.now(), dur = 1100;
       (function step(now) {
         const p = Math.min(1, (now - t0) / dur);
         const e = 1 - Math.pow(1 - p, 3);
-        el.textContent = fmtNum(target * e, dec);
+        el.textContent = numText(el, target * e, dec);
         if (p < 1) requestAnimationFrame(step);
       })(t0);
     };
@@ -287,6 +292,7 @@
     $("#eduDegree").textContent = T(EDUCATION.degree);
     $("#eduYears").textContent = EDUCATION.years;
     $("#eduPlace").textContent = T(CONFIG.location);
+    if (EDUCATION.site) $("#eduSite").href = EDUCATION.site; else $("#eduSite").hidden = true;
     $("#eduCourses").innerHTML = EDUCATION.courses.map((c) => `<li class="chip">${esc(T(c))}</li>`).join("");
     $("#eduHl").innerHTML = EDUCATION.highlights.map((h) => `<li><strong>${esc(T(h.t))}.</strong> ${rich(T(h.d))}</li>`).join("");
   }
@@ -301,7 +307,7 @@
         <h3>${esc(T(g.group))}</h3>
         <div class="ticons">${g.items.map((t) => `
           <button class="tool${activeTool === t.n ? " is-on" : ""}" type="button" data-tool="${esc(t.n)}" aria-pressed="${activeTool === t.n}">
-            <img src="https://cdn.simpleicons.org/${t.slug}/${t.c}" alt="" width="30" height="30" loading="lazy" data-n="${esc(t.n)}" data-c="${t.c}">
+            <img src="${t.img ? esc(t.img) : `https://cdn.simpleicons.org/${t.slug}/${t.c}`}" alt="" width="30" height="30" loading="lazy" data-n="${esc(t.n)}" data-c="${t.c}">
             <span class="n">${esc(t.n)}</span>
           </button>`).join("")}</div>
       </div>`).join("");
@@ -473,7 +479,7 @@
 
   let projFilter = "all", projPage = 1;
   const PROJ_FILTERS = ["all", "dashboard", "viz", "ml"];
-  const morePool = () => PROJECTS.filter((p) => !p.featured);
+  const morePool = () => byNewest((p) => whenKey(T(p.period) + " " + T(p.ctx || "")), false)(PROJECTS.filter((p) => !p.featured));
 
   function renderProjects() {
     const pool = morePool();
@@ -525,7 +531,23 @@
   let certFilter = "all", certPage = 1;
   const CERT_FILTERS = ["all", "license", "award", "activity"];
   const CERT_ORDER = { license: 0, award: 1, activity: 2 };
-  const CERTS_SORTED = CERTS.map((c, i) => [c, i]).sort((a, b) => (CERT_ORDER[a[0].cat] - CERT_ORDER[b[0].cat]) || (a[1] - b[1])).map((x) => x[0]);
+  // kunci waktu dari teks tanggal (tahun + bulan terakhir yang disebut); kosong = null
+  const MONTHS = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, mei: 5, jun: 6, jul: 7, aug: 8, agu: 8, sep: 9, oct: 10, okt: 10, nov: 11, dec: 12, des: 12 };
+  function whenKey(s) {
+    s = String(s || "");
+    const ys = (s.match(/20\d\d/g) || []).map(Number);
+    if (!ys.length) return null;
+    const ms = (s.toLowerCase().match(/\b(jan|feb|mar|apr|may|mei|jun|jul|aug|agu|sep|oct|okt|nov|dec|des)[a-z]*/g) || []).map((m) => MONTHS[m.slice(0, 3)]);
+    return Math.max(...ys) * 100 + (ms.length ? ms[ms.length - 1] : 12);
+  }
+  // terbaru dulu; yang belum punya tanggal tetap di urutan semula (di atas untuk sertifikat, di bawah untuk project)
+  const byNewest = (keyOf, nullFirst) => (arr) => arr.map((x, i) => [x, i, keyOf(x)]).sort((a, b) => {
+    if (a[2] === b[2]) return a[1] - b[1];
+    if (a[2] === null) return nullFirst ? -1 : 1;
+    if (b[2] === null) return nullFirst ? 1 : -1;
+    return b[2] - a[2];
+  }).map((x) => x[0]);
+  const CERTS_SORTED = byNewest((c) => whenKey(T(c.date)), true)(CERTS);
   const certList = () => (certFilter === "all" ? CERTS_SORTED : CERTS_SORTED.filter((c) => c.cat === certFilter));
   const certTag = (c) => ({ award: "tag--gold", activity: "tag--blue", license: "tag--red" }[c.cat]);
   // sertifikat dengan beberapa gambar (pages): cover = gambar pertama + badge jumlah
@@ -551,6 +573,7 @@
         <div class="card__body">
           <p class="issuer">${esc(noDots(c.issuer))}</p>
           <h3><button class="card__hit" type="button" data-cert="${c.id}">${esc(T(c.title))}</button></h3>
+          ${c.cred ? `<p class="card__cred"><span>${esc(ui("lb.cred"))}</span> ${esc(c.cred)}</p>` : ""}
           ${c.date ? `<div class="card__meta"><span>${esc(ui("cert.done"))}: ${esc(T(c.date))}</span></div>` : ""}
           <button class="btn btn--dark btn--sm card__btn" type="button" data-cert="${c.id}">${icon("external")}${esc(ui("btn.viewcert"))}</button>
         </div>
@@ -1008,7 +1031,7 @@
     store.set("lang", lang);
     applyStatic();
     renderAll();
-    $$("[data-count]").forEach((el) => { el.textContent = fmtNum(parseFloat(el.dataset.count), parseInt(el.dataset.dec || "0", 10)); });
+    $$("[data-count]").forEach((el) => { el.textContent = numText(el, parseFloat(el.dataset.count), parseInt(el.dataset.dec || "0", 10)); });
     if (openLayer && openLayer.id === "lightbox") renderLightbox();
     else if (openLayer) closeLayer();
   }
@@ -1159,7 +1182,7 @@
   /* 4. Marquee tools */
   if (typeof TOOLS !== "undefined" && hero) {
     const items = TOOLS.flatMap((g) => g.items);
-    const one = items.map((t) => `<span class="mq__i"><img src="https://cdn.simpleicons.org/${t.slug}/${t.c}" alt="" width="22" height="22" loading="lazy" onerror="this.remove()"><b>${t.n.replace(/</g, "")}</b></span>`).join("");
+    const one = items.map((t) => `<span class="mq__i"><img src="${t.img ? t.img : `https://cdn.simpleicons.org/${t.slug}/${t.c}`}" alt="" width="22" height="22" loading="lazy" onerror="this.remove()"><b>${t.n.replace(/</g, "")}</b></span>`).join("");
     const m = document.createElement("div");
     m.className = "mq"; m.setAttribute("aria-hidden", "true");
     m.innerHTML = `<div class="mq__track">${one}${one}</div>`;
